@@ -1,0 +1,177 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Outfit', system-ui, sans-serif;
+}
+
+/* Theme variables – dark (default) – royal-heath accent */
+[data-theme="dark"],
+:root {
+  --bg: #0c0c0c;
+  --bg-alt: #0a0a0a;
+  --bg-card: rgba(39, 39, 42, 0.3);
+  --text: #ffffff;
+  --text-muted: #a1a1aa;
+  /* royal-heath scale: 400–700 used for accents */
+  --accent: #c66eab; /* 500 */
+  --accent-strong: #b1518f; /* 600 */
+  --accent-muted: #d690c3; /* 400 */
+  --border: rgba(63, 63, 70, 0.8);
+  --border-hover: rgba(198, 110, 171, 0.5); /* 500 with alpha */
+  --shadow-accent: rgba(198, 110, 171, 0.25);
+  --skip-bg: #b1518f;
+  --skip-text: #0c0c0c;
+  --focus-ring: rgba(198, 110, 171, 0.7);
+}
+
+/* Theme variables – light – royal-heath accent */
+[data-theme="light"] {
+  --bg: #faf5f9; /* 50 */
+  --bg-alt: #f7ecf4; /* 100 */
+  --bg-card: rgba(241, 217, 236, 0.85); /* 200 with alpha */
+  --text: #3f182f; /* 950 */
+  --text-muted: #6a3153; /* 900 */
+  --accent: #b1518f; /* 600 */
+  --accent-strong: #a3437e; /* 700 */
+  --accent-muted: #d690c3; /* 400 */
+  --border: rgba(241, 217, 236, 0.9); /* 200 */
+  --border-hover: rgba(161, 65, 118, 0.7); /* between 600–700 */
+  --shadow-accent: rgba(198, 110, 171, 0.3); /* 500 */
+  --skip-bg: #a3437e;
+  --skip-text: #faf5f9;
+  --focus-ring: rgba(161, 65, 118, 0.7);
+}
+
+/* Keyframe animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% { opacity: 0.12; }
+  50% { opacity: 0.18; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Animation utility classes */
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+.animate-fade-in-up.opacity-0 {
+  opacity: 0;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+.animate-slide-down {
+  animation: slide-down 0.4s ease-out forwards;
+}
+
+.animate-gradient {
+  animation: gradient-shift 8s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Stagger delays for children */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+.delay-6 { animation-delay: 0.6s; }
+
+/* Initial state for scroll-triggered elements */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.reveal--slow {
+  transition-duration: 0.8s;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+}
+
+/* Focus visible for keyboard UX */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* Skip to main content link for a11y */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  background: var(--skip-bg);
+  color: var(--skip-text);
+  font-weight: 600;
+  border-radius: 0.5rem;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
