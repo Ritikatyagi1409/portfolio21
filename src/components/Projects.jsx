@@ -2,26 +2,26 @@ import { useInView } from '../hooks/useInView';
 
 const projects = [
   {
-    title: 'Harena',
-    subtitle: 'Lead Developer',
+    title: 'LightFlow',
+    subtitle: 'MLM Platform',
     description:
-      'Full-stack education platform using Vue 3, Node.js, MongoDB, Tailwind CSS, Stripe, and Firebase Messaging. Multi-role dashboards (Admin, Business, User) with onboarding, course creation, and enrollment. Scalable backend APIs, Stripe payments, and FCM for real-time push notifications.',
-    tags: ['Vue 3', 'Node.js', 'MongoDB', 'Tailwind', 'Stripe', 'Firebase'],
+      'Built and scaled backend systems using Node.js, Express.js, MongoDB, Vue.js, Redis, AWS S3, and SQS supporting 12,500+ users with optimized APIs, Redis caching, and secure Stripe & PayPal payment integrations.',
+    tags: ['Node.js', 'Express.js', 'MongoDB', 'Vue.js', 'Redis', 'AWS S3', 'Stripe', 'PayPal'],
     link: '#',
     github: '#',
   },
   {
-    title: 'VediCode',
+    title: 'Relatomy - SOS Relazioni',
     description:
-      'Full-stack, responsive learning platform with React.js, Tailwind CSS, Node.js, and Express.js. Seamless video playback, course tracking, and modern UI/UX. Razorpay for secure payments and Cloudinary for optimized media upload, storage, and delivery.',
-    tags: ['React', 'Tailwind', 'Node.js', 'Express', 'Razorpay', 'Cloudinary'],
+      'Developed a multi-role relationship platform with Node.js, Express.js, MongoDB, AWS S3, Stripe, and PayPal featuring real-time chat, booking engine, and secure payment integrations including Apple Pay and Google Pay.',
+    tags: ['Node.js', 'Express.js', 'MongoDB', 'AWS S3', 'Stripe', 'PayPal'],
     link: '#',
     github: '#',
   },
   {
     title: 'Connectify',
     description:
-      'Real-time communication platform using React.js, Socket.io, Node.js, and Express.js. Live chat, user presence, and fully responsive UI. OneSignal for push notifications with seamless back-end and front-end integration.',
+      'Real-time communication platform using React.js, Socket.io, Node.js, and Express.js with live chat, user presence, responsive UI, and OneSignal push notifications.',
     tags: ['React', 'Socket.io', 'Node.js', 'Express', 'OneSignal'],
     link: '#',
     github: '#',
